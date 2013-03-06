@@ -1,7 +1,11 @@
-#include <iostream>
-using namespace std;
+
+
+class trainglefree{
+int a[3][3] = {{0, 1, 0},
+			  {1, 0, 1},
+			  {0, 1, 0}};
 int istrainglefree(int a[3][3], int n)
-{	
+{
 	int i, j, k, sum, x[n][n], y[n][n];
 	int trace = 0;
 	for(i=0;i<n;i++)
@@ -32,10 +36,7 @@ int istrainglefree(int a[3][3], int n)
 		return 0;
 }
 
-int main(){
-	int a[3][3] = { {0, 1, 0},
-					{1, 0, 1},
-					{0, 1, 0}};
-	cout<<istrainglefree(a,3)<<endl;
-	return 0;
+public static void main(){
+	System.out.println(istrainglefree(a,3)+"\n");
+}
 }
