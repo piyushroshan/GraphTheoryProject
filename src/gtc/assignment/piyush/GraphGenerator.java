@@ -3,7 +3,7 @@ package gtc.assignment.piyush;
 public class GraphGenerator {
 	int n;
 	final int MAX = 10;
-	
+	int[][][] tf = new int[MAX][MAX][MAX];
 	
 	
 	
@@ -16,8 +16,8 @@ public class GraphGenerator {
 	{
 		int i,j;
 		int[][] a = new int[MAX][MAX];
-		int[][] b = new int[MAX][MAX];
-		System.arraycopy( a, 0, b, 0, a.length );
+		int[][] b = new int[n][n];
+		System.arraycopy( a, 0, b, 0, b.length );
 		b[0][1]=1;
 		b[1][0]=1;
 		int[] s = new int[MAX];
@@ -63,20 +63,24 @@ public class GraphGenerator {
 						b[i][j]=1;
 						b[j][i]=1;
 						if(istrainglefree(b, n)){
-							flag = 1;
-							printGraphtest(b);
+							//printGraphtest(b);
 							//System.out.println("Added edge type 1");
+							flag = 1;
 							int[] sb = new int[MAX];
 							System.arraycopy( s, 0, sb, 0, sb.length );
 							addedge(b,sb,c);
+						}else{
+							
 						}
+							b[i][j]=0;
+							b[j][i]=0;
 						
 					}
 				}
 			}
 			if(flag==0){
 				
-				//System.out.println("Graph found");
+				System.out.println("Graph found");
 				printGraph(a);
 			}
 				
@@ -101,9 +105,7 @@ public class GraphGenerator {
 							//System.out.println("Added edge type 2");
 							int[] sb = new int[MAX];
 							System.arraycopy( s, 0, sb, 0, sb.length );
-							int[][] bb = new int[n][n];
-							System.arraycopy( b, 0, bb, 0, b.length );
-							addedge(bb,sb,c+s[i]-oldi+s[j]-oldj);
+							addedge(b,sb,c+s[i]-oldi+s[j]-oldj);
 						}
 						b[i][j]=0;
 						b[j][i]=0;
@@ -112,6 +114,9 @@ public class GraphGenerator {
 					}
 				}
 		}
+		
+	}
+	void addGraph(int[][]a, int n){
 		
 	}
 	
@@ -191,7 +196,7 @@ public class GraphGenerator {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		GraphGenerator g = new GraphGenerator(4);
+		GraphGenerator g = new GraphGenerator(5);
 	}
 
 }
