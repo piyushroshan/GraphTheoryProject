@@ -4,8 +4,8 @@ package gtc.assignment.piyush;
 public class GraphGenerator {
 	int n;
 	final int MAX = 10;
-	final int MAXF = 100;
-	int[][][] tf = new int[MAXF][MAXF][MAXF];
+	final int MAXF = 10000;
+	int[][][] tf = new int[MAXF][MAX][MAX];
 	int tfcount;
 	permatrix isomrphc;
 	public GraphGenerator(int x) {
@@ -104,17 +104,33 @@ public class GraphGenerator {
 			tfcount++;
 			return;
 		}
-		int sum=0;
+
 		for (c = 0; c < tfcount; c++) {
-			sum+=isomrphc.isomorphic(a, tf[c]);
+			int tf_c=0, a_c=0,sum=0;
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < n; j++) {
+					if(tf[c][i][j]==a[i][j])
+						sum++;
+					if(tf[c][i][j]==1)
+						tf_c++;
+					if(a[i][j]==1)
+						a_c++;
+				}	
+			}
+			if(tf_c!=a_c){
+				continue;
+			}
+			
+			if(sum!=(n*n-n)/2){
+				if(isomrphc.isomorphic(a, tf[c])==0)
+					return;
+			}
 		}
-		if(sum==tfcount){
 		for (int ii = 0; ii < n; ii++) {
 			System.arraycopy(a[ii], 0, tf[tfcount][ii], 0, n);
 		}
 		tfcount++;
 		return;
-		}
 	}
 
 	Boolean istrainglefree(int[][] a, int n) {
@@ -172,6 +188,6 @@ public class GraphGenerator {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		GraphGenerator g = new GraphGenerator(7);
+		GraphGenerator g = new GraphGenerator(6);
 	}
 }

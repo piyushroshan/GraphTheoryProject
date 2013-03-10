@@ -22,10 +22,10 @@ public class permatrix {
 		int[] arr = new int[v];
 		for (int y = 0; y < v; y++)
 			arr[y] = y + 1;
-		printPermutations(arr, 0, v);
+		permuteVertex(arr, 0, v);
 	}
 
-	public static void printPermutations(int[] array, int l, int h) {
+	public static void permuteVertex(int[] array, int l, int h) {
 		int i, temp, j;
 		boolean skip;
 		if (l == h) {
@@ -44,7 +44,7 @@ public class permatrix {
 					array[l] = array[i];
 					array[i] = temp;
 
-					printPermutations(array, l + 1, h);
+					permuteVertex(array, l + 1, h);
 
 					temp = array[l];
 					array[l] = array[i];
@@ -90,7 +90,6 @@ public class permatrix {
 				}
 			}
 			if (ele == v * v) {
-				// System.out.println("isomorphic\n");
 				return 0;
 			}
 
