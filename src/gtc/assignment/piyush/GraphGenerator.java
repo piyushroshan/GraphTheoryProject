@@ -60,6 +60,7 @@ public class GraphGenerator {
 				}
 			}
 			if (flag == 0) {
+				System.out.println(" Graph found ");
 				addGraph(a, n);
 			}
 		}
@@ -104,13 +105,24 @@ public class GraphGenerator {
 			tfcount++;
 			return;
 		}
-
+		
 		for (c = 0; c < tfcount; c++) {
 			int tf_c=0, a_c=0,sum=0;
 			for (int i = 0; i < n; i++) {
-				for (int j = 0; j < n; j++) {
+				for (int j = 0; j < i; j++) {
 					if(tf[c][i][j]==a[i][j])
 						sum++;
+				}
+			}
+			if(sum==(n*n-n)/2){
+					return;
+			}
+		}
+		
+		for (c = 0; c < tfcount; c++) {
+			int tf_c=0, a_c=0;
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < i; j++) {
 					if(tf[c][i][j]==1)
 						tf_c++;
 					if(a[i][j]==1)
@@ -120,11 +132,8 @@ public class GraphGenerator {
 			if(tf_c!=a_c){
 				continue;
 			}
-			
-			if(sum!=(n*n-n)/2){
-				if(isomrphc.isomorphic(a, tf[c])==0)
-					return;
-			}
+			if(isomrphc.isomorphic(a, tf[c])==0)
+				return;
 		}
 		for (int ii = 0; ii < n; ii++) {
 			System.arraycopy(a[ii], 0, tf[tfcount][ii], 0, n);
@@ -171,10 +180,6 @@ public class GraphGenerator {
 			for (i = 0; i < n; i++)
 				System.out.print(i + 1 + " ");
 			System.out.println();
-
-			for (i = 0; i < n; i++)
-				System.out.print("---");
-			System.out.println();
 			for (i = 0; i < n; i++) {
 				System.out.print(i + 1 + "| ");
 				for (j = 0; j < n; j++) {
@@ -187,7 +192,6 @@ public class GraphGenerator {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		GraphGenerator g = new GraphGenerator(6);
 	}
 }
