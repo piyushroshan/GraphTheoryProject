@@ -90,7 +90,7 @@ public class permatrix {
 				}
 			}
 			if (ele == v * v) {
-				System.out.println(" Isomorphic ");
+				//System.out.println(" Isomorphic ");
 				return 0;
 			}
 
