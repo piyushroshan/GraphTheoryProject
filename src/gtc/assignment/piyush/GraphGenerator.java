@@ -107,7 +107,7 @@ public class GraphGenerator {
 		}
 		
 		for (c = 0; c < tfcount; c++) {
-			int tf_c=0, a_c=0,sum=0;
+			int sum=0;
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < i; j++) {
 					if(tf[c][i][j]==a[i][j])
@@ -174,15 +174,14 @@ public class GraphGenerator {
 	}
 
 	void printtf() {
-		int i, j, k;
-		for (k = 0; k < tfcount; k++) {
+		for (int k = 0; k < tfcount; k++) {
 			System.out.print(" | ");
-			for (i = 0; i < n; i++)
+			for (int i = 0; i < n; i++)
 				System.out.print(i + 1 + " ");
 			System.out.println();
-			for (i = 0; i < n; i++) {
+			for (int i = 0; i < n; i++) {
 				System.out.print(i + 1 + "| ");
-				for (j = 0; j < n; j++) {
+				for (int j = 0; j < n; j++) {
 					System.out.print(tf[k][i][j] + " ");
 				}
 				System.out.println("");
