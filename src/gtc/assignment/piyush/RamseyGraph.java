@@ -131,7 +131,7 @@ public class RamseyGraph {
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
 					if (a[i][j] == C) {
-						b[i][j] = C;
+						b[i][j] = 1;
 					}
 				}
 			}
