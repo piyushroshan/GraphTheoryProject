@@ -19,6 +19,7 @@ public class RamseyGraph {
 		cG = 0;
 		isomrphc = new Isomorphism(n);
 		fileOut = new FileOutput(filename);
+		fileOut.writeTextFile("Ramsey Graphs");
 		call();
 	}
 
