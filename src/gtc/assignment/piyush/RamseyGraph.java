@@ -1,23 +1,19 @@
 package gtc.assignment.piyush;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-
 public class RamseyGraph {
-	int n;
-	int MAXE;
-	int MAXC;
-	final int MAX = 10;
-	final int MAXF = 10000;
+	static int n;
+	static int maxE;
+	static int maxC;
+	final static int MAX = 10;
+	final static int MAX_G = 10000;
 	final String filename = "ramseyGraph.txt";
-	int[][][] tf = new int[MAXF][MAX][MAX];
-	int count_g;
+	int[][][] tf = new int[MAX_G][MAX][MAX];
+	int cG;
 	Isomorphism isomrphc;
 
-	public RamseyGraph(int x) {
-		n = x;
-		count_g = 0;
+	public RamseyGraph(int n) {
+		RamseyGraph.n = n;
+		cG = 0;
 		isomrphc = new Isomorphism(n);
 		call();
 	}
@@ -30,14 +26,14 @@ public class RamseyGraph {
 				a[i][j] = 1;
 				a[j][i] = 1;
 			}
-		MAXC = (int) (n - 1) / 2;
-		System.out.println(MAXC);
-		MAXE = (n * n - n) / 2;
-		if (MAXC == 1) {
+		maxC = (int) (n - 1) / 2;
+		System.out.println(maxC);
+		maxE = (n * n - n) / 2;
+		if (maxC == 1) {
 			if (isRamseyGraph(a))
 				addGraph(a);
 		} else {
-			for (int C = 2; C <= MAXC; C++) {
+			for (int C = 2; C <= maxC; C++) {
 				int[][] b = new int[n][n];
 				for (int ii = 0; ii < n; ii++) {
 					System.arraycopy(a[ii], 0, b[ii], 0, n);
@@ -54,23 +50,23 @@ public class RamseyGraph {
 	 * @param args
 	 */
 
-	void addEdge(int[][] a, int e) {
+	void addEdge(int[][] a, int cE) {
 		int i, j;
 		if (isRamseyGraph(a))
 			addGraph(a);
 
-		if (e < MAXE) {
+		if (cE < maxE) {
 			for (i = 0; i < n; i++)
 				for (j = 0; j < i; j++) {
 					if (i != j && a[i][j] == 1) {
-						for (int C = 2; C <= MAXC; C++) {
+						for (int C = 2; C <= maxC; C++) {
 							int[][] b = new int[n][n];
 							for (int ii = 0; ii < n; ii++) {
 								System.arraycopy(a[ii], 0, b[ii], 0, n);
 							}
 							b[i][j] = C;
 							b[j][i] = C;
-							addEdge(b, e + 1);
+							addEdge(b, cE + 1);
 						}
 					}
 				}
@@ -78,16 +74,15 @@ public class RamseyGraph {
 	}
 
 	void addGraph(int[][] a) {
-		int c;
-		if (count_g == 0) {
+		if (cG == 0) {
 			for (int ii = 0; ii < n; ii++) {
-				System.arraycopy(a[ii], 0, tf[count_g][ii], 0, n);
+				System.arraycopy(a[ii], 0, tf[cG][ii], 0, n);
 			}
-			count_g++;
+			cG++;
 			return;
 		}
 
-		for (c = 0; c < count_g; c++) {
+		for (int c = 0; c < cG; c++) {
 			int sum = 0;
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < i; j++) {
@@ -100,41 +95,46 @@ public class RamseyGraph {
 			}
 		}
 
-		for (c = 0; c < count_g; c++) {
-			int tf_c = 0, a_c = 0;
+		for (int c = 0; c < cG; c++) {
+			int cTf = 0, cA = 0;
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < i; j++) {
 					if (tf[c][i][j] == 1)
-						tf_c++;
+						cTf++;
 					if (a[i][j] == 1)
-						a_c++;
+						cA++;
 				}
 			}
-			if (tf_c != a_c) {
+			if (cTf != cA) {
 				continue;
 			}
-			if (isomrphc.isomorphic(a, tf[c]) == 0)
+			if (isomrphc.isIsomorphic(a, tf[c]))
 				return;
 		}
-		printGraph(a, "GraphFound");
-		for (int ii = 0; ii < n; ii++) {
-			System.arraycopy(a[ii], 0, tf[count_g][ii], 0, n);
+		
+		for (int i = 0; i < n; i++) {
+			System.arraycopy(a[i], 0, tf[cG][i], 0, n);
 		}
-		count_g++;
+		cG++;
 		return;
 	}
 
 	Boolean isRamseyGraph(int[][] a) {
 		int sum = 0;
-		for (int C = 1; C <= MAXC; C++) {
+		for (int C = 1; C <= maxC; C++) {
 			int[][] b = new int[n][n];
+			int cE=0;
 			for (int i = 0; i < n; i++) {
-				for (int j = 0; j < n; j++) {
+				for (int j = 0; j < i; j++) {
 					if (a[i][j] == C) {
 						b[i][j] = 1;
+						b[j][i] = 1;
+						cE=cE+2;
 					}
 				}
 			}
+			if(cE==maxE)
+				return false;
 			if (!istrainglefree(b))
 				sum++;
 		}
@@ -144,28 +144,27 @@ public class RamseyGraph {
 	}
 
 	Boolean istrainglefree(int[][] a) {
-		int i, j, k, sum;
 		int[][] x = new int[n][n];
 		int[][] y = new int[n][n];
 		int trace = 0;
-		for (i = 0; i < n; i++) {
-			for (j = 0; j < n; j++) {
-				sum = 0;
-				for (k = 0; k < n; k++)
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				int sum = 0;
+				for (int k = 0; k < n; k++)
 					sum = sum + a[i][k] * a[k][j];
 				x[i][j] = sum;
 			}
 		}
-		for (i = 0; i < n; i++) {
-			for (j = 0; j < n; j++) {
-				sum = 0;
-				for (k = 0; k < n; k++)
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				int sum = 0;
+				for (int k = 0; k < n; k++)
 					sum = sum + x[i][k] * a[k][j];
 				y[i][j] = sum;
 			}
 		}
 
-		for (i = 0; i < n; i++) {
+		for (int i = 0; i < n; i++) {
 			trace += y[i][i];
 		}
 
@@ -191,41 +190,20 @@ public class RamseyGraph {
 	}
 
 	void printRamseyGraphs() {
-		int i, j, k;
-		for (k = 0; k < count_g; k++) {
+		for (int c = 0; c < cG; c++) {
 			System.out.print(" | ");
-			for (i = 0; i < n; i++)
+			for (int i = 0; i < n; i++)
 				System.out.print(i + 1 + " ");
 			System.out.println();
-			for (i = 0; i < n; i++) {
+			for (int i = 0; i < n; i++) {
 				System.out.print(i + 1 + "| ");
-				for (j = 0; j < n; j++) {
-					System.out.print(tf[k][i][j] + " ");
+				for (int j = 0; j < n; j++) {
+					System.out.print(tf[c][i][j] + " ");
 				}
 				System.out.println("");
 			}
 		}
-		System.out.print("No of Ramsey graphs: " + count_g + "\n");
-	}
-
-	public void writeTextFile(String fileName, String s) {
-		FileWriter output = null;
-		try {
-			output = new FileWriter(fileName);
-			BufferedWriter writer = new BufferedWriter(output);
-			writer.write(s);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (output != null) {
-				try {
-					output.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-
+		System.out.print("No of Ramsey graphs: " + cG + "\n");
 	}
 
 	public static void main(String[] args) {
