@@ -6,11 +6,17 @@ public class MaxTraingleFreeGraph {
 	final int MAXF = 10000;
 	int[][][] tf = new int[MAXF][MAX][MAX];
 	int cTF;
+	final String filename = "maxTraingleFreeGraph.txt";
 	Isomorphism isomrphc;
+	FileOutput fileOut;
+	
+	
 	public MaxTraingleFreeGraph(int x) {
 		n = x;
 		cTF = 0;
 		isomrphc = new Isomorphism(n);
+		fileOut = new FileOutput(filename);
+		fileOut.writeTextFile("Maximal-Traingle-Free Graphs");
 		call();	
 	}
 
@@ -23,6 +29,8 @@ public class MaxTraingleFreeGraph {
 		vSet[2] = 1;
 		addedge(a, vSet, 2);
 		printTF();
+		fileOut.writeTextFile("No of Maximal-Traingle-Free Graphs of "+ n +" vertices = "+ cTF);
+		fileOut.closeFile();
 	}
 
 	/**
@@ -92,6 +100,7 @@ public class MaxTraingleFreeGraph {
 				System.arraycopy(a[i], 0, tf[cTF][i], 0, n);
 			}
 			cTF++;
+			fileOut.writeTextFile(a, n);
 			return;
 		}
 		
@@ -128,6 +137,7 @@ public class MaxTraingleFreeGraph {
 			System.arraycopy(a[i], 0, tf[cTF][i], 0, n);
 		}
 		cTF++;
+		fileOut.writeTextFile(a, n);
 		return;
 	}
 
@@ -163,9 +173,9 @@ public class MaxTraingleFreeGraph {
 
 	void printTF() {
 		for (int c = 0; c < cTF; c++) {
-			System.out.print(" | ");
+			System.out.print("_|_");
 			for (int i = 0; i < n; i++)
-				System.out.print(i + 1 + " ");
+				System.out.print(i + 1 + "_");
 			System.out.println();
 			for (int i = 0; i < n; i++) {
 				System.out.print(i + 1 + "| ");
@@ -179,6 +189,7 @@ public class MaxTraingleFreeGraph {
 	}
 
 	public static void main(String[] args) {
+		@SuppressWarnings("unused")
 		MaxTraingleFreeGraph g = new MaxTraingleFreeGraph(5);
 	}
 }

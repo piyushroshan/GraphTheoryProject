@@ -2,6 +2,7 @@ package gtc.assignment.piyush;
 
 public class RamseyGraph {
 	static int n;
+	final static int l = 3;
 	static int maxE;
 	static int maxC;
 	final static int MAX = 10;
@@ -10,11 +11,14 @@ public class RamseyGraph {
 	int[][][] tf = new int[MAX_G][MAX][MAX];
 	int cG;
 	Isomorphism isomrphc;
-
+	FileOutput fileOut;
+	
+	
 	public RamseyGraph(int n) {
 		RamseyGraph.n = n;
 		cG = 0;
 		isomrphc = new Isomorphism(n);
+		fileOut = new FileOutput(filename);
 		call();
 	}
 
@@ -26,12 +30,14 @@ public class RamseyGraph {
 				a[i][j] = 1;
 				a[j][i] = 1;
 			}
-		maxC = (int) (n - 1) / 2;
-		System.out.println(maxC);
+		maxC = (int) (n - 1) / (l - 1);
+		System.out.println("No. of colours = " + maxC);
 		maxE = (n * n - n) / 2;
 		if (maxC == 1) {
-			if (isRamseyGraph(a))
+			if (isRamseyGraph(a)){
 				addGraph(a);
+				fileOut.writeTextFile(a, n);
+			}
 		} else {
 			for (int C = 2; C <= maxC; C++) {
 				int[][] b = new int[n][n];
@@ -44,6 +50,8 @@ public class RamseyGraph {
 			}
 		}
 		printRamseyGraphs();
+		fileOut.writeTextFile("No of Ramsey Graphs of "+ n +" vertices = "+ cG);
+		fileOut.closeFile();
 	}
 
 	/**
@@ -75,10 +83,11 @@ public class RamseyGraph {
 
 	void addGraph(int[][] a) {
 		if (cG == 0) {
-			for (int ii = 0; ii < n; ii++) {
-				System.arraycopy(a[ii], 0, tf[cG][ii], 0, n);
+			for (int i = 0; i < n; i++) {
+				System.arraycopy(a[i], 0, tf[cG][i], 0, n);
 			}
 			cG++;
+			fileOut.writeTextFile(a, n);
 			return;
 		}
 
@@ -116,6 +125,7 @@ public class RamseyGraph {
 			System.arraycopy(a[i], 0, tf[cG][i], 0, n);
 		}
 		cG++;
+		fileOut.writeTextFile(a, n);
 		return;
 	}
 
@@ -129,12 +139,13 @@ public class RamseyGraph {
 					if (a[i][j] == C) {
 						b[i][j] = 1;
 						b[j][i] = 1;
-						cE=cE+2;
+						cE=cE+1;
 					}
 				}
 			}
-			if(cE==maxE)
+			if(cE==maxE){
 				return false;
+			}
 			if (!istrainglefree(b))
 				sum++;
 		}
@@ -191,22 +202,24 @@ public class RamseyGraph {
 
 	void printRamseyGraphs() {
 		for (int c = 0; c < cG; c++) {
-			System.out.print(" | ");
+			System.out.print("_|_");
 			for (int i = 0; i < n; i++)
-				System.out.print(i + 1 + " ");
+				System.out.print(i + 1 + "_");
 			System.out.println();
 			for (int i = 0; i < n; i++) {
 				System.out.print(i + 1 + "| ");
 				for (int j = 0; j < n; j++) {
 					System.out.print(tf[c][i][j] + " ");
 				}
-				System.out.println("");
+				System.out.println();
 			}
+			System.out.println();
 		}
-		System.out.print("No of Ramsey graphs: " + cG + "\n");
+		System.out.print("No of Ramsey graphs of "+ n +" vertices = " + cG + "\n");
 	}
 
 	public static void main(String[] args) {
+		@SuppressWarnings("unused")
 		RamseyGraph g = new RamseyGraph(5);
 	}
 }
