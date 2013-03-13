@@ -13,12 +13,12 @@ public class RamseyGraph {
 	final String filename = "ramseyGraph.txt";
 	int[][][] tf = new int[MAXF][MAX][MAX];
 	int count_g;
-	permatrix isomrphc;
+	Isomorphism isomrphc;
 
 	public RamseyGraph(int x) {
 		n = x;
 		count_g = 0;
-		isomrphc = new permatrix(n);
+		isomrphc = new Isomorphism(n);
 		call();
 	}
 

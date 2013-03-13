@@ -1,17 +1,17 @@
 package gtc.assignment.piyush;
 
 
-public class GraphGenerator {
+public class TraingleFreeGraph {
 	int n;
 	final int MAX = 10;
 	final int MAXF = 10000;
 	int[][][] tf = new int[MAXF][MAX][MAX];
 	int tfcount;
-	permatrix isomrphc;
-	public GraphGenerator(int x) {
+	Isomorphism isomrphc;
+	public TraingleFreeGraph(int x) {
 		n = x;
 		tfcount = 0;
-		isomrphc = new permatrix(n);
+		isomrphc = new Isomorphism(n);
 		call();	
 	}
 
@@ -191,6 +191,6 @@ public class GraphGenerator {
 	}
 
 	public static void main(String[] args) {
-		GraphGenerator g = new GraphGenerator(6);
+		TraingleFreeGraph g = new TraingleFreeGraph(6);
 	}
 }

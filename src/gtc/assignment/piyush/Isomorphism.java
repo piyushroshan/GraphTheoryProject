@@ -1,6 +1,6 @@
 package gtc.assignment.piyush;
 
-public class permatrix {
+public class Isomorphism {
 	final static int MAX = 10000;
 	static int cc;
 	int[][] P = new int[MAX][MAX];
@@ -9,8 +9,8 @@ public class permatrix {
 	static int v;
 	static int[][] permutations = new int[MAX][20];
 
-	permatrix(int v) {
-		permatrix.v = v;
+	Isomorphism(int v) {
+		Isomorphism.v = v;
 		for (int i = 0; i < v; i++) {
 			for (int j = 0; j < v; j++) {
 				if (i == j)
