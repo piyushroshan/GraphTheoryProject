@@ -1,6 +1,5 @@
 package gtc.assignment.piyush;
 
-
 public class MaxTraingleFreeGraph {
 	int n;
 	final int MAX = 10;
