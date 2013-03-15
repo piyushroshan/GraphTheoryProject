@@ -1,5 +1,17 @@
 package gtc.assignment.piyush;
 
+/*	
+ *	Isomorphism.java
+ * 
+ * 	@Author	:	Roshan Piyush
+ * 				Pooja Prajod
+ *  
+ *	Purpose:	To check if two graphs are isomorphic
+ * 
+ * 
+ * 
+ */
+
 public class Isomorphism {
 	final static int MAX_P = 10000;
 	final static int MAX = 10;

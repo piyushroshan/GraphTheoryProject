@@ -1,5 +1,17 @@
 package gtc.assignment.piyush;
 
+/*	
+ *	FileOutput.java
+ * 
+ * 	@Author	:	Roshan Piyush
+ * 				Pooja Prajod
+ *  
+ *	Purpose:	To print content to a file
+ * 
+ * 
+ * 
+ */
+
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 

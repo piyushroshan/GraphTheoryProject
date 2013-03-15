@@ -1,5 +1,17 @@
 package gtc.assignment.piyush;
 
+/*	
+ *	MaxTraingleFreeGraph.java
+ * 
+ * 	@Author	:	Roshan Piyush
+ * 				Pooja Prajod
+ *  
+ *	Purpose:	To find the maximal traingle free connected graphs containing n vertices
+ * 
+ * 
+ * 
+ */
+
 public class MaxTraingleFreeGraph {
 	int n;
 	final int MAX = 10;
@@ -34,12 +46,12 @@ public class MaxTraingleFreeGraph {
 	}
 
 	/**
-	 * @param args
+	 * @param int a[][]:Array, int[] vset:vertex set, int cN: count of vertices
 	 */
 
-	void addedge(int[][] a, int[] vSet, int cN) {
+	void addedge(int[][] a, int[] vSet, int cV) {
 		boolean flag = true;;
-		if (cN == n) {
+		if (cV == n) {
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < i; j++) {
 					if (i != j && a[i][j] == 0 && vSet[i] == 1 && vSet[j] == 1) {
@@ -53,7 +65,7 @@ public class MaxTraingleFreeGraph {
 							flag = false;
 							int[] vSetCopy = new int[n];
 							System.arraycopy(vSet, 0, vSetCopy, 0, vSetCopy.length);
-							addedge(aCopy, vSetCopy, cN);
+							addedge(aCopy, vSetCopy, cV);
 						} 
 					}
 				}
@@ -63,7 +75,7 @@ public class MaxTraingleFreeGraph {
 			}
 		}
 	
-		if (cN < n) {
+		if (cV < n) {
 			for (int i = 0; i < n; i++)
 				for (int j = 0; j < i; j++) {
 					if (i != j
@@ -83,7 +95,7 @@ public class MaxTraingleFreeGraph {
 						if (istrainglefree(aCopy, n)) {
 							int[] vSetCopy = new int[n];
 							System.arraycopy(vSet, 0, vSetCopy, 0, vSetCopy.length);
-							addedge(aCopy, vSetCopy, cN + vSet[i] - oldi + vSet[j] - oldj);
+							addedge(aCopy, vSetCopy, cV + vSet[i] - oldi + vSet[j] - oldj);
 						}
 						
 						vSet[i] = oldi;
@@ -94,7 +106,6 @@ public class MaxTraingleFreeGraph {
 	}
 
 	void addGraph(int[][] a, int n) {
-		int c;
 		if(cTF == 0)	{
 			for (int i = 0; i < n; i++) {
 				System.arraycopy(a[i], 0, tf[cTF][i], 0, n);
@@ -104,7 +115,7 @@ public class MaxTraingleFreeGraph {
 			return;
 		}
 		
-		for (c = 0; c < cTF; c++) {
+		for (int c = 0; c < cTF; c++) {
 			int sum=0;
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < i; j++) {
@@ -117,7 +128,7 @@ public class MaxTraingleFreeGraph {
 			}
 		}
 		
-		for (c = 0; c < cTF; c++) {
+		for (int c = 0; c < cTF; c++) {
 			int cTf=0, cA=0;
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < i; j++) {

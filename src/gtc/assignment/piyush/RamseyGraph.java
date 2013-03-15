@@ -1,5 +1,17 @@
 package gtc.assignment.piyush;
 
+/*	
+ *	RamseyGraph.java
+ * 
+ * 	@Author	:	Roshan Piyush
+ * 				Pooja Prajod
+ *  
+ *	Purpose:	To find Ramsey Graphs with r colorings of 2 set subset containg monochromatic traingle, of n vertices.
+ * 
+ * 
+ * 
+ */
+
 public class RamseyGraph {
 	static int n;
 	final static int l = 3;
