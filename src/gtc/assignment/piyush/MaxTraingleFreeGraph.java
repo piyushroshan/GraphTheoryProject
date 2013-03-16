@@ -30,8 +30,8 @@ public class MaxTraingleFreeGraph {
 	FileOutput fileOut;
 	
 	
-	public MaxTraingleFreeGraph(int x) {
-		n = x;
+	public MaxTraingleFreeGraph(int n) {
+		this.n = n;
 		cTF = 0;
 		isomrphc = new Isomorphism(n);
 		fileOut = new FileOutput(filename);
@@ -204,13 +204,5 @@ public class MaxTraingleFreeGraph {
 			}
 		}
 		System.out.print("No of Maximal-Traingle-Free graphs: " + cTF + "\n");
-	}
-
-	public static void main(String[] args) {
-		@SuppressWarnings("unused")
-		Integer n=5;
-		if(args.length == 1)
-			n=n+1;
-		MaxTraingleFreeGraph g = new MaxTraingleFreeGraph(5);
 	}
 }

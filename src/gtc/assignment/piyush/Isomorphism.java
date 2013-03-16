@@ -17,17 +17,17 @@ package gtc.assignment.piyush;
  */
 
 public class Isomorphism {
-	final static int MAX_P = 10000;
-	final static int MAX = 10;
-	static int cP;
+	final int MAX_P = 10000;
+	final int MAX = 10;
+	 int cP;
 	int[][] P = new int[MAX][MAX];
 	int[][] PT = new int[MAX][MAX];
-	static int[][] I = new int[MAX][MAX];
-	static int n;
-	static int[][] permutations = new int[MAX_P][MAX];
+	int[][] I = new int[MAX][MAX];
+	int n;
+	int[][] permutations = new int[MAX_P][MAX];
 
 	Isomorphism(int n) {
-		Isomorphism.n = n;
+		this.n = n;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				if (i == j)
@@ -43,7 +43,7 @@ public class Isomorphism {
 		permuteVertex(array, 0, n);
 	}
 
-	public static void permuteVertex(int[] array, int l, int h) {
+	public void permuteVertex(int[] array, int l, int h) {
 		int temp;
 		boolean skip;
 		if (l == h) {

@@ -17,12 +17,12 @@ package gtc.assignment.piyush;
  */
 
 public class RamseyGraph {
-	static int n;
-	final static int l = 3;
-	static int maxE;
-	static int maxC;
-	final static int MAX = 10;
-	final static int MAX_G = 10000;
+	int n;
+	final int l = 3;
+	int maxE;
+	int maxC;
+	final int MAX = 10;
+	final int MAX_G = 10000;
 	final String filename = "ramseyGraph.txt";
 	int[][][] tf = new int[MAX_G][MAX][MAX];
 	int cG;
@@ -31,7 +31,7 @@ public class RamseyGraph {
 	
 	
 	public RamseyGraph(int n) {
-		RamseyGraph.n = n;
+		this.n = n;
 		cG = 0;
 		isomrphc = new Isomorphism(n);
 		fileOut = new FileOutput(filename);
