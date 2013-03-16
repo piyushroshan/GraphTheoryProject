@@ -28,15 +28,15 @@ public class Main {
 		String usage = "Invalid arguments\nUsage instructions :\n" +
 				"\tfilename.jar <options> <n>\n" +
 				"\t<options>\n" +
-				"\t\t-a : To compute both Ramsey Graphs and Maximal-Traingle-Free Graphs\n" +
+				"\t\t-a : To compute both Ramsey Graphs and Maximal-Triangle-Free Graphs\n" +
 				"\t\t-r : To compute Ramsey Graphs\n" +
-				"\t\t-t : to compute Maximal-Traingle-Free Graphs\n" +
+				"\t\t-t : to compute Maximal-Triangle-Free Graphs\n" +
 				"\n" +
 				"\t<n>\t   : No. of vertices";
 		if( args.length > 0){
 			if ( args[0].equals("-a")){
 				n=Integer.parseInt(args[1]);
-				MaxTraingleFreeGraph g = new MaxTraingleFreeGraph(n);
+				MaxTriangleFreeGraph g = new MaxTriangleFreeGraph(n);
 				RamseyGraph r = new RamseyGraph(n);
 			}
 			else if ( args[0].equals("-r")){
@@ -45,7 +45,7 @@ public class Main {
 			}
 			else if ( args[0].equals("-t")){
 				n=Integer.parseInt(args[1]);
-				MaxTraingleFreeGraph g = new MaxTraingleFreeGraph(n);
+				MaxTriangleFreeGraph g = new MaxTriangleFreeGraph(n);
 			}
 		} else {
 			System.out.println(usage);

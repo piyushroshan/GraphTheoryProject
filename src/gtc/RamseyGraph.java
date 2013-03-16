@@ -10,7 +10,7 @@ package gtc;
  * 	@Author	:	Roshan Piyush
  * 				Pooja Prajod
  *  
- *	Purpose	:	To find Ramsey Graphs with r colorings of 2 set subset containg monochromatic traingle, of n vertices.
+ *	Purpose	:	To find Ramsey Graphs with r colorings of 2 set subset containing monochromatic triangle, of n vertices.
  * 
  *	References :	http://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i4p36/pdf
  * 
@@ -78,7 +78,9 @@ public class RamseyGraph {
 	}
 
 	/**
-	 * @param args
+	 * @purpose : keep adding edges till it does not form a complete graph
+	 * @param a : graph to add edge on
+	 * @param cE: count of edges
 	 */
 
 	void addEdge(int[][] a, int cE) {
@@ -104,6 +106,10 @@ public class RamseyGraph {
 		}
 	}
 
+	/**
+	 * @purpose : add only non-isomorphic and non-identical graphs
+	 * @param a : graph to add
+	 */
 	void addGraph(int[][] a) {
 		
 		// if it is first graph found store it in tf[][]
@@ -156,10 +162,15 @@ public class RamseyGraph {
 		return;
 	}
 
+	/**
+	 * @purpose : check if given graph is a ramsey graph
+	 * @param a : graph
+	 * @return boolean
+	 */
 	Boolean isRamseyGraph(int[][] a) {
 		int sum = 0;
 		
-		//seperate the graphs of different colour
+		//separate the graphs of different colour
 		for (int C = 1; C <= maxC; C++) {
 			int[][] b = new int[n][n];
 			int cE=0;
@@ -175,7 +186,7 @@ public class RamseyGraph {
 			if(cE==maxE){
 				return false;
 			}
-			if (!istrainglefree(b))
+			if (!isTraingleFree(b))
 				sum++;
 		}
 		
@@ -185,7 +196,12 @@ public class RamseyGraph {
 		return false;
 	}
 
-	Boolean istrainglefree(int[][] a) {
+	/**
+	 * @purpose : check if given graph is traingle free
+	 * @param : graph
+	 * @return boolean
+	 */
+	Boolean isTraingleFree(int[][] a) {
 		int[][] x = new int[n][n];
 		int[][] y = new int[n][n];
 		int trace = 0;
@@ -210,7 +226,7 @@ public class RamseyGraph {
 			trace += y[i][i];
 		}
 		
-		//traingle free if trace = 0
+		//triangle free if trace = 0
 		if (trace == 0)
 			return true;
 		else

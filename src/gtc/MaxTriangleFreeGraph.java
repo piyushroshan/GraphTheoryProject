@@ -1,7 +1,7 @@
 package gtc;
 
 /**	
- *	MaxTraingleFreeGraph.java
+ *	MaxTriangleFreeGraph.java
  *
  * 	@Instititution : National Institute of Technology Calicut
  * 	@Date_Start	: 22nd February, 2013
@@ -10,7 +10,7 @@ package gtc;
  * 	@Author	:	Roshan Piyush
  * 				Pooja Prajod
  *  
- *	Purpose	:	To find the maximal traingle free connected graphs containing n vertices
+ *	Purpose	:	To find the maximal triangle free connected graphs containing n vertices
  * 
  *	References	:	http://en.wikipedia.org/wiki/Triangle-free_graph
  *					http://math.stackexchange.com/questions/117024/complexity-of-counting-the-number-of-triangles-of-a-graph
@@ -19,23 +19,23 @@ package gtc;
  * 
  */
 
-public class MaxTraingleFreeGraph {
+public class MaxTriangleFreeGraph {
 	int n;
 	final int MAX = 10;
 	final int MAXF = 10000;
 	int[][][] tf = new int[MAXF][MAX][MAX];
 	int cTF;
-	final String filename = "maxTraingleFreeGraph.txt";
+	final String filename = "maxTriangleFreeGraph.txt";
 	Isomorphism isomrphc;
 	FileOutput fileOut;
 	
 	
-	public MaxTraingleFreeGraph(int n) {
+	public MaxTriangleFreeGraph(int n) {
 		this.n = n;
 		cTF = 0;
 		isomrphc = new Isomorphism(n);
 		fileOut = new FileOutput(filename);
-		fileOut.writeTextFile("Maximal-Traingle-Free Graphs");
+		fileOut.writeTextFile("Maximal-Triangle-Free Graphs");
 		call();	
 	}
 
@@ -46,16 +46,16 @@ public class MaxTraingleFreeGraph {
 		a[1][0] = 1;
 		vSet[1] = 1;
 		vSet[2] = 1;
-		addedge(a, vSet, 2);
-		fileOut.writeTextFile("No of Maximal-Traingle-Free Graphs of "+ n +" vertices = "+ cTF);
-		System.out.println("No of Maximal-Traingle-Free Graphs of "+ n +" vertices = "+ cTF);
+		addEdge(a, vSet, 2);
+		fileOut.writeTextFile("No of Maximal-Triangle-Free Graphs of "+ n +" vertices = "+ cTF);
+		System.out.println("No of Maximal-Triangle-Free Graphs of "+ n +" vertices = "+ cTF);
 	}
 
 	/**
 	 * @param int a[][]:Array, int[] vset:vertex set, int cN: count of vertices
 	 */
 
-	void addedge(int[][] a, int[] vSet, int cV) {
+	void addEdge(int[][] a, int[] vSet, int cV) {
 		boolean flag = true;;
 		if (cV == n) {
 			for (int i = 0; i < n; i++) {
@@ -67,11 +67,11 @@ public class MaxTraingleFreeGraph {
 						}
 						aCopy[i][j] = 1;
 						aCopy[j][i] = 1;
-						if (istrainglefree(aCopy, n)) {
+						if (isTriangleFree(aCopy, n)) {
 							flag = false;
 							int[] vSetCopy = new int[n];
 							System.arraycopy(vSet, 0, vSetCopy, 0, vSetCopy.length);
-							addedge(aCopy, vSetCopy, cV);
+							addEdge(aCopy, vSetCopy, cV);
 						} 
 					}
 				}
@@ -98,10 +98,10 @@ public class MaxTraingleFreeGraph {
 						vSet[i] = 1;
 						vSet[j] = 1;
 
-						if (istrainglefree(aCopy, n)) {
+						if (isTriangleFree(aCopy, n)) {
 							int[] vSetCopy = new int[n];
 							System.arraycopy(vSet, 0, vSetCopy, 0, vSetCopy.length);
-							addedge(aCopy, vSetCopy, cV + vSet[i] - oldi + vSet[j] - oldj);
+							addEdge(aCopy, vSetCopy, cV + vSet[i] - oldi + vSet[j] - oldj);
 						}
 						
 						vSet[i] = oldi;
@@ -158,7 +158,7 @@ public class MaxTraingleFreeGraph {
 		return;
 	}
 
-	Boolean istrainglefree(int[][] a, int n) {
+	Boolean isTriangleFree(int[][] a, int n) {
 		int[][] x = new int[n][n];
 		int[][] y = new int[n][n];
 		int trace = 0;

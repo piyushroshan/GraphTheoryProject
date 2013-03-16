@@ -3,6 +3,7 @@ GraphTheoryProject
 This project was done as a part of assignment the Graph Theory and Combinatorics.
 
 Problem Statement:
+
 A triangle-free graph is an undirected graph in which no three vertices form a triangle of
 edges [1]. In order to determine a Ramsey graph based on r colourings, it often suffices to
 investigate maximal triangle-free graphs of any colour any colour among the r colours [2].
