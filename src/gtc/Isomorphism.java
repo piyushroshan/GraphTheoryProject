@@ -1,4 +1,4 @@
-package gtc.assignment.piyush;
+package gtc;
 
 /*	
  *	Isomorphism.java

@@ -21,3 +21,8 @@ If the graph is a complete graph and if the program identifies whether or not it
 graph based on the number of colourings r . You may assume that the value of k and l in
 R(r,k,l) is 2 and 3 respectively. Thus only Ramsey graphs with R(r,2,3) = n need to be
 identified.
+
+
+
+Usage Instructions:
+TO COMPILE:

@@ -1,4 +1,4 @@
-package gtc.assignment.piyush;
+package gtc;
 
 /*	
  *	MaxTraingleFreeGraph.java
@@ -47,9 +47,8 @@ public class MaxTraingleFreeGraph {
 		vSet[1] = 1;
 		vSet[2] = 1;
 		addedge(a, vSet, 2);
-		printTF();
 		fileOut.writeTextFile("No of Maximal-Traingle-Free Graphs of "+ n +" vertices = "+ cTF);
-		fileOut.closeFile();
+		System.out.println("No of Maximal-Traingle-Free Graphs of "+ n +" vertices = "+ cTF);
 	}
 
 	/**

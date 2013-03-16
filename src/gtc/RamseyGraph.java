@@ -1,4 +1,4 @@
-package gtc.assignment.piyush;
+package gtc;
 
 /*	
  *	RamseyGraph.java
@@ -51,9 +51,8 @@ public class RamseyGraph {
 		System.out.println("No. of colours = " + maxC);
 		maxE = (n * n - n) / 2;
 		if (maxC == 1) {
-			if (isRamseyGraph(a)){
+			if (n>=3){
 				addGraph(a);
-				fileOut.writeTextFile(a, n);
 			}
 		} else {
 			for (int C = 2; C <= maxC; C++) {
@@ -66,9 +65,8 @@ public class RamseyGraph {
 				addEdge(b, 1);
 			}
 		}
-		printRamseyGraphs();
 		fileOut.writeTextFile("No of Ramsey Graphs of "+ n +" vertices = "+ cG);
-		fileOut.closeFile();
+		System.out.println("No of Ramsey Graphs of "+ n +" vertices = "+ cG);
 	}
 
 	/**
@@ -233,10 +231,5 @@ public class RamseyGraph {
 			System.out.println();
 		}
 		System.out.print("No of Ramsey graphs of "+ n +" vertices = " + cG + "\n");
-	}
-
-	public static void main(String[] args) {
-		@SuppressWarnings("unused")
-		RamseyGraph g = new RamseyGraph(5);
 	}
 }
