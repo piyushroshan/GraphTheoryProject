@@ -2,13 +2,20 @@ package gtc.assignment.piyush;
 
 /*	
  *	MaxTraingleFreeGraph.java
- * 
+ *
+ * 	@Instititution : National Institute of Technology Calicut
+ * 	@Date_Start	: 22nd February, 2013
+ * 	@Date_End	: 9th March, 2013
+ * 	@Number of days worked on	:	8
  * 	@Author	:	Roshan Piyush
  * 				Pooja Prajod
  *  
- *	Purpose:	To find the maximal traingle free connected graphs containing n vertices
+ *	Purpose	:	To find the maximal traingle free connected graphs containing n vertices
  * 
- * 
+ *	References	:	http://en.wikipedia.org/wiki/Triangle-free_graph
+ *					http://math.stackexchange.com/questions/117024/complexity-of-counting-the-number-of-triangles-of-a-graph
+ *					http://hog.grinvin.org/MTF
+ *					http://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i4p36/pdf
  * 
  */
 
@@ -201,6 +208,9 @@ public class MaxTraingleFreeGraph {
 
 	public static void main(String[] args) {
 		@SuppressWarnings("unused")
+		Integer n=5;
+		if(args.length == 1)
+			n=n+1;
 		MaxTraingleFreeGraph g = new MaxTraingleFreeGraph(5);
 	}
 }

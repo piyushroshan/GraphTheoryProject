@@ -3,12 +3,16 @@ package gtc.assignment.piyush;
 /*	
  *	Isomorphism.java
  * 
+* 	@Instititution : National Institute of Technology Calicut
+ * 	@Date_Start	: 4th March, 2013
+ * 	@Date_End	: 8th March, 2013
+ * 	@Number of days worked on	:	3
  * 	@Author	:	Roshan Piyush
  * 				Pooja Prajod
  *  
- *	Purpose:	To check if two graphs are isomorphic
- * 
- * 
+ *	Purpose:	To check if two graphs are isomorphic.
+ *
+ *	References	:	http://www.usafa.edu/df/dfe/dfer/centers/accr/docs/augeri2007b.pdf
  * 
  */
 

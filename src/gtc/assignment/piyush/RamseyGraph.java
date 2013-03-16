@@ -3,12 +3,16 @@ package gtc.assignment.piyush;
 /*	
  *	RamseyGraph.java
  * 
+* 	@Instititution : National Institute of Technology Calicut
+ * 	@Date_Start	: 7th February, 2013
+ * 	@Date_End	: 14th March, 2013
+ * 	@Number of days worked on	:	6
  * 	@Author	:	Roshan Piyush
  * 				Pooja Prajod
  *  
- *	Purpose:	To find Ramsey Graphs with r colorings of 2 set subset containg monochromatic traingle, of n vertices.
+ *	Purpose	:	To find Ramsey Graphs with r colorings of 2 set subset containg monochromatic traingle, of n vertices.
  * 
- * 
+ *	References :	http://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i4p36/pdf
  * 
  */
 
