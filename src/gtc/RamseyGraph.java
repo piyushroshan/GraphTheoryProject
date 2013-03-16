@@ -1,5 +1,6 @@
 package gtc;
 
+// TODO: Auto-generated Javadoc
 /**	
  *	RamseyGraph.java
  * 
@@ -17,20 +18,43 @@ package gtc;
  */
 
 public class RamseyGraph {
+	
+	/** The n. */
 	int n;
+	
+	/** The l. */
 	final int l = 3;
+	
+	/** The max e. */
 	int maxE;
+	
+	/** The max c. */
 	int maxC;
+	
+	/** The max. */
 	final int MAX = 10;
+	
+	/** The max g. */
 	final int MAX_G = 10000;
+	
+	/** The filename. */
 	final String filename = "ramseyGraph.txt";
+	
+	/** The tf. */
 	int[][][] tf = new int[MAX_G][MAX][MAX];
+	
+	/** The c g. */
 	int cG;
+	
+	/** The isomrphc. */
 	Isomorphism isomrphc;
+	
+	/** The file out. */
 	FileOutput fileOut;
 	
 	/**
-	 * Constructor
+	 * Constructor.
+	 *
 	 * @param n : No of vertices
 	 */
 	public RamseyGraph(int n) {
@@ -43,6 +67,8 @@ public class RamseyGraph {
 	}
 	
 	/**
+	 * Call.
+	 *
 	 * @purpose : initiate the graph creation
 	 */
 	void call() {
@@ -78,9 +104,11 @@ public class RamseyGraph {
 	}
 
 	/**
-	 * @purpose : keep adding edges till it does not form a complete graph
+	 * Adds the edge.
+	 *
 	 * @param a : graph to add edge on
-	 * @param cE: count of edges
+	 * @param cE: the count of edge
+	 * @purpose : keep adding edges till it does not form a complete graph
 	 */
 
 	void addEdge(int[][] a, int cE) {
@@ -107,8 +135,10 @@ public class RamseyGraph {
 	}
 
 	/**
-	 * @purpose : add only non-isomorphic and non-identical graphs
+	 * Adds the graph.
+	 *
 	 * @param a : graph to add
+	 * @purpose : add only non-isomorphic and non-identical graphs
 	 */
 	void addGraph(int[][] a) {
 		
@@ -163,9 +193,11 @@ public class RamseyGraph {
 	}
 
 	/**
-	 * @purpose : check if given graph is a ramsey graph
+	 * Checks if is ramsey graph.
+	 *
 	 * @param a : graph
 	 * @return boolean
+	 * @purpose : check if given graph is a ramsey graph
 	 */
 	Boolean isRamseyGraph(int[][] a) {
 		int sum = 0;
@@ -197,9 +229,11 @@ public class RamseyGraph {
 	}
 
 	/**
-	 * @purpose : check if given graph is traingle free
-	 * @param : graph
+	 * Checks if is triangle free.
+	 *
+	 * @param a the graph
 	 * @return boolean
+	 * @purpose check if given graph is triangle free
 	 */
 	Boolean isTraingleFree(int[][] a) {
 		int[][] x = new int[n][n];

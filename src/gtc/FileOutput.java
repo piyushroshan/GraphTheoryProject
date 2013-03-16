@@ -21,10 +21,23 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FileOutput.
+ */
 public class FileOutput {
+	
+	/** The filename. */
 	String filename;
+	
+	/** The writer. */
 	private PrintWriter writer = null;
 
+	/**
+	 * Instantiates a new file output.
+	 *
+	 * @param filename the filename
+	 */
 	public FileOutput(String filename) {
 		this.filename = filename;
 		try {
@@ -41,6 +54,11 @@ public class FileOutput {
 		
 	}
 
+	/**
+	 * Write text file.
+	 *
+	 * @param s the sstring to print
+	 */
 	public void writeTextFile(String s) {
 		try {
 			writer = new PrintWriter(new BufferedWriter(new FileWriter(filename,true)));
@@ -55,6 +73,12 @@ public class FileOutput {
 		}
 	}
 
+	/**
+	 * Write text file.
+	 *
+	 * @param a the graph to print
+	 * @param n the number of vertices in graph
+	 */
 	public void writeTextFile(int[][] a, int n) {
 		try {
 			writer = new PrintWriter(new BufferedWriter(new FileWriter(filename,true)));
@@ -81,6 +105,9 @@ public class FileOutput {
 		
 	}
 
+	/**
+	 * Close file.
+	 */
 	public void closeFile(){
 		writer.close();
 	}

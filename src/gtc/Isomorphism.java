@@ -1,5 +1,6 @@
 package gtc;
 
+// TODO: Auto-generated Javadoc
 /**
  *	Isomorphism.java
  * 
@@ -17,15 +18,36 @@ package gtc;
  */
 
 public class Isomorphism {
+	
+	/** The max p. */
 	final int MAX_P = 10000;
+	
+	/** The max. */
 	final int MAX = 10;
-	 int cP;
+	 
+ 	/** The count of Permutations. */
+ 	int cP;
+	
+	/** The p. */
 	int[][] P = new int[MAX][MAX];
+	
+	/** The pt. */
 	int[][] PT = new int[MAX][MAX];
+	
+	/** The i. */
 	int[][] I = new int[MAX][MAX];
+	
+	/** The n. */
 	int n;
+	
+	/** The permutations. */
 	int[][] permutations = new int[MAX_P][MAX];
 
+	/**
+	 * Instantiates a new isomorphism.
+	 *
+	 * @param n the n
+	 */
 	Isomorphism(int n) {
 		this.n = n;
 		for (int i = 0; i < n; i++) {
@@ -43,6 +65,13 @@ public class Isomorphism {
 		permuteVertex(array, 0, n);
 	}
 
+	/**
+	 * Permute vertex.
+	 *
+	 * @param array the array
+	 * @param l the l
+	 * @param h the h
+	 */
 	public void permuteVertex(int[] array, int l, int h) {
 		int temp;
 		boolean skip;
@@ -71,6 +100,13 @@ public class Isomorphism {
 		}
 	}
 
+	/**
+	 * Checks if is isomorphic.
+	 *
+	 * @param a the a
+	 * @param b the b
+	 * @return true, if is isomorphic
+	 */
 	boolean isIsomorphic(int[][] a, int[][] b) {
 		for (int w = 0; w < cP; w++) {
 			int cE = 0;

@@ -1,5 +1,6 @@
 package gtc;
 
+// TODO: Auto-generated Javadoc
 /**	
  *	MaxTriangleFreeGraph.java
  *
@@ -20,16 +21,37 @@ package gtc;
  */
 
 public class MaxTriangleFreeGraph {
+	
+	/** The n. */
 	int n;
+	
+	/** The max. */
 	final int MAX = 10;
+	
+	/** The maxf. */
 	final int MAXF = 10000;
+	
+	/** The tf. */
 	int[][][] tf = new int[MAXF][MAX][MAX];
+	
+	/** The c tf. */
 	int cTF;
+	
+	/** The filename. */
 	final String filename = "maxTriangleFreeGraph.txt";
+	
+	/** The isomrphc. */
 	Isomorphism isomrphc;
+	
+	/** The file out. */
 	FileOutput fileOut;
 	
 	
+	/**
+	 * Instantiates a new max triangle free graph.
+	 *
+	 * @param n the n
+	 */
 	public MaxTriangleFreeGraph(int n) {
 		this.n = n;
 		cTF = 0;
@@ -39,6 +61,9 @@ public class MaxTriangleFreeGraph {
 		call();	
 	}
 
+	/**
+	 * Call.
+	 */
 	void call() {
 		int[][] a = new int[n][n];
 		int[] vSet = new int[n];
@@ -52,7 +77,11 @@ public class MaxTriangleFreeGraph {
 	}
 
 	/**
-	 * @param int a[][]:Array, int[] vset:vertex set, int cN: count of vertices
+	 * Adds the edge.
+	 *
+	 * @param a the a
+	 * @param vSet the v set
+	 * @param cV the c v
 	 */
 
 	void addEdge(int[][] a, int[] vSet, int cV) {
@@ -111,6 +140,12 @@ public class MaxTriangleFreeGraph {
 		}
 	}
 
+	/**
+	 * Adds the graph.
+	 *
+	 * @param a the a
+	 * @param n the n
+	 */
 	void addGraph(int[][] a, int n) {
 		if(cTF == 0)	{
 			for (int i = 0; i < n; i++) {
@@ -158,6 +193,13 @@ public class MaxTriangleFreeGraph {
 		return;
 	}
 
+	/**
+	 * Checks if is triangle free.
+	 *
+	 * @param a the a
+	 * @param n the n
+	 * @return the boolean
+	 */
 	Boolean isTriangleFree(int[][] a, int n) {
 		int[][] x = new int[n][n];
 		int[][] y = new int[n][n];
