@@ -1,12 +1,12 @@
 package gtc;
 
-/*	
+/**
  *	Isomorphism.java
  * 
-* 	@Instititution : National Institute of Technology Calicut
+ * 	@Instititution : National Institute of Technology Calicut
  * 	@Date_Start	: 4th March, 2013
  * 	@Date_End	: 8th March, 2013
- * 	@Number of days worked on	:	3
+ * 	@Number_of_days_worked_on	:	3
  * 	@Author	:	Roshan Piyush
  * 				Pooja Prajod
  *  

@@ -1,12 +1,12 @@
 package gtc;
 
-/*	
+/**	
  *	FileOutput.java
  * 
 * 	@Instititution : National Institute of Technology Calicut
  * 	@Date_Start	: 7th March, 2013
  * 	@Date_End	: 8th March, 2013
- * 	@Number of days worked on	:	1
+ * 	@Number_of_days_worked_on	:	1
  * 	@Author	:	Roshan Piyush
  * 				Pooja Prajod
  * 

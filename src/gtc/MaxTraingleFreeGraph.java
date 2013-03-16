@@ -1,12 +1,12 @@
 package gtc;
 
-/*	
+/**	
  *	MaxTraingleFreeGraph.java
  *
  * 	@Instititution : National Institute of Technology Calicut
  * 	@Date_Start	: 22nd February, 2013
  * 	@Date_End	: 9th March, 2013
- * 	@Number of days worked on	:	8
+ * 	@Number_of_days_worked_on	:	8
  * 	@Author	:	Roshan Piyush
  * 				Pooja Prajod
  *  
@@ -188,20 +188,4 @@ public class MaxTraingleFreeGraph {
 			return false;
 	}
 
-	void printTF() {
-		for (int c = 0; c < cTF; c++) {
-			System.out.print("_|_");
-			for (int i = 0; i < n; i++)
-				System.out.print(i + 1 + "_");
-			System.out.println();
-			for (int i = 0; i < n; i++) {
-				System.out.print(i + 1 + "| ");
-				for (int j = 0; j < n; j++) {
-					System.out.print(tf[c][i][j] + " ");
-				}
-				System.out.println("");
-			}
-		}
-		System.out.print("No of Maximal-Traingle-Free graphs: " + cTF + "\n");
-	}
 }

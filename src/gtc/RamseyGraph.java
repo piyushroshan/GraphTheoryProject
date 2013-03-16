@@ -1,12 +1,12 @@
 package gtc;
 
-/*	
+/**	
  *	RamseyGraph.java
  * 
 * 	@Instititution : National Institute of Technology Calicut
  * 	@Date_Start	: 7th February, 2013
  * 	@Date_End	: 14th March, 2013
- * 	@Number of days worked on	:	6
+ * 	@Number_of_days_worked_on	:	6
  * 	@Author	:	Roshan Piyush
  * 				Pooja Prajod
  *  
@@ -29,7 +29,10 @@ public class RamseyGraph {
 	Isomorphism isomrphc;
 	FileOutput fileOut;
 	
-	
+	/**
+	 * Constructor
+	 * @param n : No of vertices
+	 */
 	public RamseyGraph(int n) {
 		this.n = n;
 		cG = 0;
@@ -38,7 +41,10 @@ public class RamseyGraph {
 		fileOut.writeTextFile("Ramsey Graphs");
 		call();
 	}
-
+	
+	/**
+	 * @purpose : initiate the graph creation
+	 */
 	void call() {
 		int[][] a = new int[MAX][MAX];
 
@@ -60,6 +66,8 @@ public class RamseyGraph {
 				for (int ii = 0; ii < n; ii++) {
 					System.arraycopy(a[ii], 0, b[ii], 0, n);
 				}
+				
+				// choose any initial edge and continue
 				b[0][1] = C;
 				b[1][0] = C;
 				addEdge(b, 1);
@@ -97,6 +105,8 @@ public class RamseyGraph {
 	}
 
 	void addGraph(int[][] a) {
+		
+		// if it is first graph found store it in tf[][]
 		if (cG == 0) {
 			for (int i = 0; i < n; i++) {
 				System.arraycopy(a[i], 0, tf[cG][i], 0, n);
@@ -105,7 +115,8 @@ public class RamseyGraph {
 			fileOut.writeTextFile(a, n);
 			return;
 		}
-
+		
+		//check for identical graphs
 		for (int c = 0; c < cG; c++) {
 			int sum = 0;
 			for (int i = 0; i < n; i++) {
@@ -118,7 +129,8 @@ public class RamseyGraph {
 				return;
 			}
 		}
-
+		
+		//check if the graph found is isomorphic to any previously found graph stored in tf[][]
 		for (int c = 0; c < cG; c++) {
 			int cTf = 0, cA = 0;
 			for (int i = 0; i < n; i++) {
@@ -146,6 +158,8 @@ public class RamseyGraph {
 
 	Boolean isRamseyGraph(int[][] a) {
 		int sum = 0;
+		
+		//seperate the graphs of different colour
 		for (int C = 1; C <= maxC; C++) {
 			int[][] b = new int[n][n];
 			int cE=0;
@@ -164,6 +178,8 @@ public class RamseyGraph {
 			if (!istrainglefree(b))
 				sum++;
 		}
+		
+		//check if it is ramsey graph
 		if (sum == 1)
 			return true;
 		return false;
@@ -193,43 +209,11 @@ public class RamseyGraph {
 		for (int i = 0; i < n; i++) {
 			trace += y[i][i];
 		}
-
+		
+		//traingle free if trace = 0
 		if (trace == 0)
 			return true;
 		else
 			return false;
-	}
-
-	void printGraph(int[][] a, String s) {
-		System.out.println(s);
-		System.out.print(" | ");
-		for (int i = 0; i < n; i++)
-			System.out.print(i + 1 + " ");
-		System.out.println();
-		for (int i = 0; i < n; i++) {
-			System.out.print(i + 1 + "| ");
-			for (int j = 0; j < n; j++) {
-				System.out.print(a[i][j] + " ");
-			}
-			System.out.println("");
-		}
-	}
-
-	void printRamseyGraphs() {
-		for (int c = 0; c < cG; c++) {
-			System.out.print("_|_");
-			for (int i = 0; i < n; i++)
-				System.out.print(i + 1 + "_");
-			System.out.println();
-			for (int i = 0; i < n; i++) {
-				System.out.print(i + 1 + "| ");
-				for (int j = 0; j < n; j++) {
-					System.out.print(tf[c][i][j] + " ");
-				}
-				System.out.println();
-			}
-			System.out.println();
-		}
-		System.out.print("No of Ramsey graphs of "+ n +" vertices = " + cG + "\n");
 	}
 }
