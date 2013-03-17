@@ -19,11 +19,10 @@ package gtc;
 public class Main {
 
 	/**
-	 * @param args
+	 * @param args the commandline input
 	 */
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int n;
 		String usage = "Invalid arguments\nUsage instructions :\n" +
 				"\tfilename.jar <options> <n>\n" +
