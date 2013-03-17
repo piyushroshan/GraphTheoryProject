@@ -34,7 +34,7 @@ public class FileOutput {
 	/**
 	 * Instantiates a new file output.
 	 *
-	 * @param filename the filename
+	 * @param filename the output file name
 	 */
 	public FileOutput(String filename) {
 		this.filename = filename;
