@@ -1,6 +1,5 @@
 package gtc;
 
-// TODO: Auto-generated Javadoc
 /**
  *	Isomorphism.java
  * 
@@ -19,25 +18,25 @@ package gtc;
 
 public class Isomorphism {
 	
-	/** The max p. */
+	/** The max expected permutations. */
 	final int MAX_P = 10000;
 	
-	/** The max. */
+	/** The max expected numbers to be permuted. */
 	final int MAX = 10;
 	 
- 	/** The count of Permutations. */
+ 	/** The count of permutations. */
  	int cP;
 	
-	/** The p. */
+	/** The particular permutation of I. */
 	int[][] P = new int[MAX][MAX];
 	
-	/** The pt. */
+	/** The transpose of P. */
 	int[][] PT = new int[MAX][MAX];
 	
-	/** The i. */
+	/** The unit matrix I. */
 	int[][] I = new int[MAX][MAX];
 	
-	/** The n. */
+	/** The number of vertices. */
 	int n;
 	
 	/** The permutations. */
@@ -68,9 +67,9 @@ public class Isomorphism {
 	/**
 	 * Permute vertex.
 	 *
-	 * @param array the array
-	 * @param l the l
-	 * @param h the h
+	 * @param array the array to store all the permutations of 1..n
+	 * @param l the index of array till which numbers are permuted
+	 * @param h the number of items to be permuted
 	 */
 	public void permuteVertex(int[] array, int l, int h) {
 		int temp;
@@ -101,11 +100,11 @@ public class Isomorphism {
 	}
 
 	/**
-	 * Checks if is isomorphic.
+	 * Checks if two graphs are isomorphic.
 	 *
-	 * @param a the a
-	 * @param b the b
-	 * @return true, if is isomorphic
+	 * @param a the input graph
+	 * @param b the graph to be transformed by permutation
+	 * @return true, if the graphs are isomorphic
 	 */
 	boolean isIsomorphic(int[][] a, int[][] b) {
 		for (int w = 0; w < cP; w++) {
