@@ -33,18 +33,17 @@ public class Main {
 				"\n" +
 				"\t<n>\t   : No. of vertices";
 		
-		if( args.length > 0){
+		if( args.length > 0 && Integer.parseInt(args[1]) > 0){
+			n=Integer.parseInt(args[1]);
 			if ( args[0].equals("-a")){
-				n=Integer.parseInt(args[1]);
+				
 				MaxTriangleFreeGraph g = new MaxTriangleFreeGraph(n);
 				RamseyGraph r = new RamseyGraph(n);
 			}
 			else if ( args[0].equals("-r")){
-				n=Integer.parseInt(args[1]);
 				RamseyGraph r = new RamseyGraph(n);
 			}
 			else if ( args[0].equals("-t")){
-				n=Integer.parseInt(args[1]);
 				MaxTriangleFreeGraph g = new MaxTriangleFreeGraph(n);
 			}
 		} else {
