@@ -138,13 +138,13 @@ public class Isomorphism {
 			}
 			
 			for (int i = 0; i < n; i++) {
-				for (int j = 0; j < n; j++) {
+				for (int j = 0; j < i; j++) {
 					if (a[i][j] == tempIsomorphic[i][j])
 						cE++;
 				}
 			}
 			
-			if (cE == n * n) {
+			if (cE == n * (n-1)/2) {
 				return true;
 			}
 		}
