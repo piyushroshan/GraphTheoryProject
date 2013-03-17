@@ -1,6 +1,5 @@
 package gtc;
 
-// TODO: Auto-generated Javadoc
 /**	
  *	RamseyGraph.java
  * 
@@ -19,7 +18,7 @@ package gtc;
 
 public class RamseyGraph {
 	
-	/** The n. */
+	/** The number of vertices. */
 	int n;
 	
 	/** The l. */
