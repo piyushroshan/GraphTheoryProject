@@ -21,16 +21,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class FileOutput.
  */
 public class FileOutput {
 	
-	/** The filename. */
+	/** The output filename. */
 	String filename;
 	
-	/** The writer. */
 	private PrintWriter writer = null;
 
 	/**
@@ -44,7 +42,6 @@ public class FileOutput {
 			writer = new PrintWriter(new BufferedWriter(new FileWriter(filename,false)));
 			System.out.println("Created\t\"" + filename + "\" sucessfully");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			System.out.println("Could not create\t" + filename);
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -55,16 +52,15 @@ public class FileOutput {
 	}
 
 	/**
-	 * Write text file.
+	 * Printing string to file.
 	 *
-	 * @param s the sstring to print
+	 * @param s the output string to print
 	 */
 	public void writeTextFile(String s) {
 		try {
 			writer = new PrintWriter(new BufferedWriter(new FileWriter(filename,true)));
 			writer.println(s);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			System.out.println("Could not write to\t\"" + filename + "\"");
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -74,7 +70,7 @@ public class FileOutput {
 	}
 
 	/**
-	 * Write text file.
+	 * Printing graph to file.
 	 *
 	 * @param a the graph to print
 	 * @param n the number of vertices in graph
@@ -95,7 +91,6 @@ public class FileOutput {
 			}
 			writer.println();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			System.out.println("Could not write to\t\"" + filename + "\"");
 			System.out.println(e.getMessage());
 			e.printStackTrace();
