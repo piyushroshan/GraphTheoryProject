@@ -97,8 +97,8 @@ public class RamseyGraph {
 				addEdge(b, 1);
 			}
 		}
-		fileOut.writeTextFile("No of Ramsey Graphs of "+ n +" vertices = "+ cG);
-		System.out.println("No of Ramsey Graphs of "+ n +" vertices = "+ cG);
+		fileOut.writeTextFile("No of Ramsey Graphs of "+ n +" vertices = "+ cG +"\n");
+		System.out.println("No of Ramsey Graphs of "+ n +" vertices = "+ cG +"\n");
 	}
 
 	/**

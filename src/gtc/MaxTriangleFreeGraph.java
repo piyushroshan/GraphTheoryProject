@@ -69,8 +69,8 @@ public class MaxTriangleFreeGraph {
 		vSet[1] = 1;
 		vSet[2] = 1;
 		addEdge(a, vSet, 2);
-		fileOut.writeTextFile("No of Maximal-Triangle-Free Graphs of "+ n +" vertices = "+ cTF);
-		System.out.println("No of Maximal-Triangle-Free Graphs of "+ n +" vertices = "+ cTF);
+		fileOut.writeTextFile("No of Maximal-Triangle-Free Graphs of "+ n +" vertices = "+ cTF+"\n");
+		System.out.println("No of Maximal-Triangle-Free Graphs of "+ n +" vertices = "+ cTF+"\n");
 	}
 
 	/**
