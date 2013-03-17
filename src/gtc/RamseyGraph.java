@@ -21,19 +21,19 @@ public class RamseyGraph {
 	/** The number of vertices. */
 	int n;
 	
-	/** The l. */
+	/** The monochromatic complete graph size. */
 	final int l = 3;
 	
-	/** The max e. */
+	/** The maximum edges in the graph. */
 	int maxE;
 	
 	/** The max c. */
 	int maxC;
 	
-	/** The max. */
+	/** The max graph size constants. */
 	final int MAX = 10;
 	
-	/** The max g. */
+	/** The max no. of graphs. */
 	final int MAX_G = 10000;
 	
 	/** The filename. */
@@ -45,7 +45,7 @@ public class RamseyGraph {
 	/** The c g. */
 	int cG;
 	
-	/** The isomrphc. */
+	/** The isomorphic object */
 	Isomorphism isomrphc;
 	
 	/** The file out. */
@@ -66,9 +66,8 @@ public class RamseyGraph {
 	}
 	
 	/**
-	 * Call.
+	 * Initiate the graph creation
 	 *
-	 * @purpose : initiate the graph creation
 	 */
 	void call() {
 		int[][] a = new int[MAX][MAX];
@@ -103,11 +102,10 @@ public class RamseyGraph {
 	}
 
 	/**
-	 * Adds the edge.
+	 * Keep adding edges till it does not form a complete graph
 	 *
 	 * @param a : graph to add edge on
 	 * @param cE: the count of edge
-	 * @purpose : keep adding edges till it does not form a complete graph
 	 */
 
 	void addEdge(int[][] a, int cE) {
@@ -134,10 +132,9 @@ public class RamseyGraph {
 	}
 
 	/**
-	 * Adds the graph.
+	 * Adds only non-isomorphic and non-identical graphs.
 	 *
 	 * @param a : graph to add
-	 * @purpose : add only non-isomorphic and non-identical graphs
 	 */
 	void addGraph(int[][] a) {
 		
@@ -196,7 +193,6 @@ public class RamseyGraph {
 	 *
 	 * @param a : graph
 	 * @return boolean
-	 * @purpose : check if given graph is a ramsey graph
 	 */
 	Boolean isRamseyGraph(int[][] a) {
 		int sum = 0;
@@ -232,7 +228,6 @@ public class RamseyGraph {
 	 *
 	 * @param a the graph
 	 * @return boolean
-	 * @purpose check if given graph is triangle free
 	 */
 	Boolean isTraingleFree(int[][] a) {
 		int[][] x = new int[n][n];
