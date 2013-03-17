@@ -141,6 +141,10 @@ public class Isomorphism {
 				for (int j = 0; j < i; j++) {
 					if (a[i][j] == tempIsomorphic[i][j])
 						cE++;
+					else{
+						i = n;
+						j = n;
+					}
 				}
 			}
 			
