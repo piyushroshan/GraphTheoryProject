@@ -1,6 +1,5 @@
 package gtc;
 
-// TODO: Auto-generated Javadoc
 /**	
  *	MaxTriangleFreeGraph.java
  *
@@ -22,35 +21,33 @@ package gtc;
 
 public class MaxTriangleFreeGraph {
 	
-	/** The n. */
+	/** The number of vertices. */
 	int n;
 	
-	/** The max. */
+	/** The max number of vertices expected. */
 	final int MAX = 10;
 	
-	/** The maxf. */
+	/** The max number of graphs expected. */
 	final int MAXF = 10000;
 	
-	/** The tf. */
+	/** The triangle-free graphs. */
 	int[][][] tf = new int[MAXF][MAX][MAX];
 	
-	/** The c tf. */
+	/** The count of triangle-free graphs. */
 	int cTF;
 	
-	/** The filename. */
+	/** The filename to store output. */
 	final String filename = "maxTriangleFreeGraph.txt";
 	
-	/** The isomrphc. */
 	Isomorphism isomrphc;
 	
-	/** The file out. */
 	FileOutput fileOut;
 	
 	
 	/**
 	 * Instantiates a new max triangle free graph.
 	 *
-	 * @param n the n
+	 * @param n the number of vertices
 	 */
 	public MaxTriangleFreeGraph(int n) {
 		this.n = n;
@@ -62,7 +59,7 @@ public class MaxTriangleFreeGraph {
 	}
 
 	/**
-	 * Call.
+	 * Adds the first edge and initiates the addEdge().
 	 */
 	void call() {
 		int[][] a = new int[n][n];
@@ -77,11 +74,11 @@ public class MaxTriangleFreeGraph {
 	}
 
 	/**
-	 * Adds the edge.
+	 * Adds an edge to the graph a.
 	 *
-	 * @param a the a
-	 * @param vSet the v set
-	 * @param cV the c v
+	 * @param a the graph under processing
+	 * @param vSet the set of vertices processed
+	 * @param cV the count of vertices processed
 	 */
 
 	void addEdge(int[][] a, int[] vSet, int cV) {
@@ -141,10 +138,10 @@ public class MaxTriangleFreeGraph {
 	}
 
 	/**
-	 * Adds the graph.
+	 * Adds the graph to tf.
 	 *
-	 * @param a the a
-	 * @param n the n
+	 * @param a the candidate triangle-free graph formed
+	 * @param n the number of vertices
 	 */
 	void addGraph(int[][] a, int n) {
 		if(cTF == 0)	{
@@ -194,11 +191,11 @@ public class MaxTriangleFreeGraph {
 	}
 
 	/**
-	 * Checks if is triangle free.
+	 * Checks if a graph is triangle free.
 	 *
-	 * @param a the a
-	 * @param n the n
-	 * @return the boolean
+	 * @param a the graph to be checked
+	 * @param n the number of vertices
+	 * @return true if it is triangle free
 	 */
 	Boolean isTriangleFree(int[][] a, int n) {
 		int[][] x = new int[n][n];
