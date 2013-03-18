@@ -38,6 +38,8 @@ USING ECLIPSE:
 	To Package:
 	To make a jar file you can just use the export option and choose export using jar file.
 	And then run the jar file using command line with proper arguments.
+	Example:
+	GTC.jar -a 5
 
 	You can even run directly from eclipse by configuring the run arguments as described by usage.
 
