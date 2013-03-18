@@ -46,14 +46,14 @@ USING ECLIPSE:
 USING COMMAND LINE:
 	Browse to source folder.
 	
-	cd path_to_Project_Folder/src/
+	cd path_to_Project_Folder
 	
 	
 	Run the following commands
 	
 	
 	mkdir bin
-	javac -d "bin" "gtc/*.java"
+	javac -d "bin" "src/gtc/*.java"
 	java -cp "bin" gtc.Main <options> <n>
 	
 	<options>
