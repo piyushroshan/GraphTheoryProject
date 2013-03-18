@@ -168,3 +168,4 @@ _|_1_2_3_4_5_
 5| 1 1 1 1 0 
 
 No of Ramsey Graphs of 5 vertices = 24
+

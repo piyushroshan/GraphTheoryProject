@@ -21,3 +21,4 @@ _|_1_2_3_4_5_
 5| 0 0 1 1 0 
 
 No of Maximal-Triangle-Free Graphs of 5 vertices = 3
+

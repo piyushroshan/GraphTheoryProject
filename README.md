@@ -26,4 +26,16 @@ identified.
 
 
 Usage Instructions:
-TO COMPILE:
+
+Requirements: 
+JDK 1.6
+Eclipse or Maven
+
+To Build:
+You can import this project in eclipse and build.
+
+To Package:
+To make a jar file you can just use the export option and choose export using jar file.
+And then run the jar file using command line with proper arguments.
+
+You can even run directly from eclipse by configuring the run arguments as described by usage.
